@@ -1,4 +1,4 @@
-import { BasicResultData, TestDepGraphMeta, SEVERITY } from './legacy';
+import { BasicResultData, SEVERITY, TestDepGraphMeta } from './legacy';
 
 export interface AnnotatedIacIssue {
   id: string;
@@ -14,6 +14,10 @@ export interface AnnotatedIacIssue {
   name?: string;
   from?: string[];
   lineNumber?: number;
+  iacDescription: {
+    impact: string;
+    resolve: string;
+  };
 }
 
 type FILTERED_OUT_FIELDS = 'cloudConfigPath' | 'name' | 'from';

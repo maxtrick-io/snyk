@@ -219,11 +219,12 @@ export function extractReportingDescriptor(
         text: `${upperFirst(issue.severity)} severity - ${issue.title}`,
       },
       fullDescription: {
-        text: `${iacTypeToText[issue.type]} ${issue.subType}`,
+        text: `Type: ${iacTypeToText[issue.type]} ${issue.subType}, impact: ${
+          issue.iacDescription.impact
+        }`,
       },
       help: {
-        text: '',
-        markdown: issue.description,
+        text: issue.iacDescription.resolve,
       },
       defaultConfiguration: {
         level: getIssueLevel(issue.severity),
